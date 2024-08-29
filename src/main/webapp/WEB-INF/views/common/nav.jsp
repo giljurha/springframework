@@ -1,13 +1,5 @@
-<!-- 태그 주석(응답에 포함) -->
-<%-- JSP 주석(응답에 포함안됨) --%>
-
-<%-- page 지시자 --%>
-<%--
-language: 프로그래밍 언어의 종류
-pageEncoding: JSP 소스를 작성할 때 사용할 문자셋(다국어 이용 => UTF-8)
-contentType: JSP 실행결과(응답 내용)의 종류(MIME; charset-응답을 구성하는 문자셋)
- --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar navbar-dark bg-dark">
          <div class="ms-2">
@@ -19,6 +11,13 @@ contentType: JSP 실행결과(응답 내용)의 종류(MIME; charset-응답을 �
          </div>
 
          <div class="me-2">
-            <a class="btn btn-success btn-sm" href="#">로그인</a>
+         	<c:if test="${login == null}">
+	            <a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/ch08/login">로그인</a>
+            </c:if>
+            <c:if test="${login != null}">
+            	<img width="40" src="${pageContext.request.contextPath}/resources/image/login.png"/>
+            	<span class="text-white me-2">${login.mid}</span>
+            	<a class="btn btn-danger btn-sm" href="${pageContext.request.contextPath}/ch08/logout">로그아웃</a>            	
+            </c:if>
          </div>
       </nav>
