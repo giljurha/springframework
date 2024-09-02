@@ -29,7 +29,7 @@
 				<input type="submit" value="제출" class="btn btn-info btn-sm"/>
 			</form>
 		</div>
-		
+			
 		<div class="mt-2">
 			<!--  
 			<button onclick="requestGet1()" class="btn btn-info btn-sm mb-2">Javascript: location.href 속성이름</button>
@@ -38,9 +38,10 @@
 			<br/>
 			-->
 			<button onclick="requestGet3()" class="btn btn-info btn-sm mb-2">Javascript: JSON 이용</button>
-			<div id="ajaxResult" class="border mt-2">
 			
-			</div>
+				<div id="ajaxResult" class="border mt-2">
+					
+				</div>
 			
 		
 			<script>
@@ -50,7 +51,7 @@
 				
 				function requestGet2() {
 					$.ajax({
-						url: "getAjax",
+						url: "getAjax1",
 						method: "get",
 						//data1: "bno=5&kind=free",
 						data: {bno:5, bkind:"free"},

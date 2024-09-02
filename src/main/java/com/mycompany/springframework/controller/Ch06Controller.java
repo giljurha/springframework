@@ -46,11 +46,13 @@ public class Ch06Controller {
 		// 방법2
 		request.setAttribute("member2", member);
 		
+		model.addAttribute("chNum","ch06");
+		
 		return "ch06/forward";
 	}
 	
 	@GetMapping("/redirect")
-	public String redirect(HttpSession session) {
+	public String redirect(HttpSession session, Model model) {
 		
 		Ch06Member member = new Ch06Member();
 		member.setMid("user1");
@@ -58,23 +60,26 @@ public class Ch06Controller {
 		member.setMemail("user1@mycompany.com");
 		
 		session.setAttribute("member", member);
+		model.addAttribute("chNum","ch06");
 		
 		return "redirect:/ch06/sessionData";
 	}
 	
 	@GetMapping("/sessionData")
-	public String sessionData(HttpSession session) {
+	public String sessionData(HttpSession session, Model model) {
 		
 		Ch06Member member = (Ch06Member) session.getAttribute("member");
 		log.info("mid: " + member.getMid());
 		log.info("mname: " + member.getMname());
 		log.info("mname: " + member.getMemail());
 		
+		model.addAttribute("chNum","ch06");
+		
 		return "ch06/sessionData";
 	}
 	
 	@GetMapping("/cartview")
-	public String cartview(HttpSession session) {
+	public String cartview(HttpSession session, Model model) {
 		Ch06Cart cart = (Ch06Cart) session.getAttribute("cart");
 		
 //		if (cart == null) {
@@ -91,6 +96,7 @@ public class Ch06Controller {
 //			item.setPname("상품2");
 //			cart.addItem(item);
 //		}
+		model.addAttribute("chNum","ch06");
 		
 		return "ch06/cartview";
 	}
@@ -106,12 +112,13 @@ public class Ch06Controller {
 		}
 		
 		model.addAttribute("productList", productList);
+		model.addAttribute("chNum","ch06");
 		
 		return "ch06/productlist";
 	}
 	
 	@GetMapping("/cartadd")
-	public String cartadd(Ch06Item item, HttpSession session) {
+	public String cartadd(Ch06Item item, HttpSession session, Model model) {
 		// 세션에서 Ch06Cart 가져오기
 		Ch06Cart cart = (Ch06Cart) session.getAttribute("cart");
 		// 만약 Ch06Cart 객체가 없다면 새로 생성해서 세션에 저장
@@ -121,11 +128,14 @@ public class Ch06Controller {
 		}
 		// 상품 아이템을 Ch06Cart에 추가
 		cart.addItem(item);
+		
+		model.addAttribute("chNum","ch06");
+		
 		return "redirect:/ch06/cartview";
 	}
 	
 	@GetMapping("/deleteitem")
-	public String deleteitem(String pno, HttpSession session) {
+	public String deleteitem(String pno, HttpSession session, Model model) {
 		// 세션에서 Ch06Cart 가져오기
 		Ch06Cart cart = (Ch06Cart) session.getAttribute("cart");
 		// 삭제할 pid를 찾아서 장바구니에서 제거
@@ -136,6 +146,9 @@ public class Ch06Controller {
 				iterator.remove();
 			}
 		}
+		
+		model.addAttribute("chNum","ch06");
+		
 		return "redirect:/ch06/cartview";
 	}
 }

@@ -14,8 +14,11 @@ import lombok.extern.slf4j.Slf4j;
 public class LoginCheckInterceptor implements HandlerInterceptor {
 	
 	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+	public boolean preHandle(
+			HttpServletRequest request, 
+			HttpServletResponse response, 
+			Object handler
+			) throws Exception {
 		log.info("실행");
 		
 		try {
@@ -40,7 +43,6 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 					return false;
 				} else {
 					//로그인을 했을 경우
-
 				}
 			}			
 		} catch(Exception e) {
@@ -50,14 +52,22 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 	}
 	
 	@Override
-	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-			throws Exception {
+	public void afterCompletion(
+			HttpServletRequest request, 
+			HttpServletResponse response, 
+			Object handler, 
+			Exception ex
+			) throws Exception {
 		log.info("실행");
 	}
 	
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
+	public void postHandle(
+			HttpServletRequest request, 
+			HttpServletResponse response, 
+			Object handler,
+			ModelAndView modelAndView
+			) throws Exception {
 		log.info("실행");
 	}
 	

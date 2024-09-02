@@ -28,9 +28,9 @@ public class Ch05Controller {
 	@GetMapping("/header")
 	public String header(
 			@RequestHeader("user-Agent") String userAgent, //헤더값 얻는 방법1
-			HttpServletRequest request
-			,Model model) {
-		
+			HttpServletRequest request,
+			Model model
+			) {
 		log.info("userAgent: " + userAgent);
 		//헤더값 얻는 방법2
 		userAgent = request.getHeader("User-Agent");
@@ -46,13 +46,13 @@ public class Ch05Controller {
 		String clientIp = request.getRemoteAddr();
 		log.info("clientIp: " + clientIp);
 		model.addAttribute("clientIp", clientIp);
+		model.addAttribute("chNum", "ch05");
 
 		return "ch05/header";
-		
 	}
 	
 	@GetMapping("/createCookie")
-	public String createCookie(HttpServletResponse response) {
+	public String createCookie(HttpServletResponse response, Model model) {
 		// 쿠키 생성
 		Cookie cookie1 = new Cookie("mid", "user1");
 		cookie1.setMaxAge(60); //클라이언트에 파일시스템에 저장
@@ -69,6 +69,8 @@ public class Ch05Controller {
 		response.addCookie(cookie1);
 		response.addCookie(cookie2);
 		
+		model.addAttribute("chNum", "ch05");
+		
 		return "redirect:/";
 	}
 	
@@ -76,12 +78,14 @@ public class Ch05Controller {
 	public String readCookie(
 			@CookieValue("mid") String mid,
 			@CookieValue("memail") String memail,
-			Model model) {
+			Model model
+			) {
 		log.info("mid: " + mid);
 		log.info("memail: " + memail);
 		
 		model.addAttribute("mid", mid);
 		model.addAttribute("memail", memail);
+		model.addAttribute("chNum", "ch05");
 		
 		return "ch05/readCookie";
 	}

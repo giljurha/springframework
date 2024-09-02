@@ -30,7 +30,8 @@ public class Ch03Controller {
 			String param3,
 			String param4,
 			String param5,
-			Model model) {
+			Model model
+			) {
 		log.info("param1: " + param1);
 		log.info("param2: " + param2);
 		log.info("param3: " + param3);
@@ -60,7 +61,8 @@ public class Ch03Controller {
 			double param3,
 			boolean param4,
 			@DateTimeFormat(pattern="yyyy-MM-dd") Date param5,
-			Model model) {
+			Model model
+			) {
 		log.info("param1: " + param1);
 		log.info("param2: " + param2);
 		log.info("param3: " + param3);

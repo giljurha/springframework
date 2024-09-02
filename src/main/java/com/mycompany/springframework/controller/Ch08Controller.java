@@ -42,7 +42,7 @@ public class Ch08Controller {
 	}
 	
 	@PostMapping("/login")
-	public String login(Ch08LoginForm loginForm, HttpSession session) {
+	public String login(Ch08LoginForm loginForm, HttpSession session, Model model) {
 		Ch08Member member = new Ch08Member();
 		member.setMid(loginForm.getMid());
 		member.setMpassword(loginForm.getMpassword());
@@ -51,13 +51,22 @@ public class Ch08Controller {
 		
 		session.setAttribute("login", member);
 		
+		model.addAttribute("chNum","ch08");
+		
 		return "redirect:/";
 	}
 	
+	@GetMapping("/loginInfo")
+	public String loginInfo(Model model) {
+		model.addAttribute("chNum", "ch08");
+		return "ch08/loginInfo";
+	}
+	
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, Model model) {
 		//session.removeAttribute("login"); 키값만 지우고
 		session.invalidate(); // 모든 데이터를 다 지운다
+		model.addAttribute("chNum", "ch08");
 		return "redirect:/ch08/login";
 	}
 }

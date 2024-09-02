@@ -12,7 +12,7 @@ public class HomeController {
 	@RequestMapping("")
 	public String index(Model model) {
 		log.info("실행");
-		model.addAttribute("chNum", "ch01");
+//		model.addAttribute("chNum", "ch01");
 		return "home";
 	}
 	
