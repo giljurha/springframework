@@ -11,6 +11,7 @@
 
       <div class="card-body">
       	교재를 보고 따라서 해봅니다.
+      	${modelName}
       </div>
    </div>
 </div>

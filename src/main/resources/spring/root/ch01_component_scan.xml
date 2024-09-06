@@ -12,10 +12,10 @@
 		use-default-filters="false">
 		<context:include-filter 
 			type="annotation" 
-			expression="org.springframework.sterotype.Service"/>
+			expression="org.springframework.stereotype.Service"/>
 		<context:include-filter
 			type="annotation"
-			expression="org.springframework.sterotype.Repository"/>
+			expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
 	
 </beans>
