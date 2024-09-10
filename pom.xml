@@ -20,6 +20,7 @@
   <properties>
   	<!-- 해당 변수는 별칭 -->
   	<springframework-version>5.3.29</springframework-version>
+  	<springframework-security-version>5.8.14</springframework-security-version>
   </properties>
   
   
@@ -83,7 +84,6 @@
 	    <artifactId>json</artifactId>
 	    <version>20240303</version>
 	</dependency>
-  	
   	
   	<!-- DTO를 JSON으로 변환하는 라이브러리 설정 -->
 	<dependency>
@@ -154,8 +154,48 @@
 	    <version>1.9.22.1</version>
 	</dependency>
 	
-  	
-  	
+	<!-- JUnit 라이브러리 설정 -->
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.13.2</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>${springframework-version}</version>
+	    <scope>test</scope>
+	</dependency>
+	<!-- Spring Security 의존 라이브러리 설정 -->
+
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-core</artifactId>
+	    <version>${springframework-security-version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-web</artifactId>
+	    <version>${springframework-security-version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-config</artifactId>
+	    <version>${springframework-security-version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-taglibs</artifactId>
+	    <version>${springframework-security-version}</version>
+	</dependency>
+	
+	
   </dependencies>
   
   

@@ -8,6 +8,8 @@ pageEncoding: JSP 소스를 작성할 때 사용할 문자셋(다국어 이용 =
 contentType: JSP 실행결과(응답 내용)의 종류(MIME; charset-응답을 구성하는 문자셋)
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 
 <div class="accordion" id="accordionMenu">
 
@@ -273,6 +275,80 @@ contentType: JSP 실행결과(응답 내용)의 종류(MIME; charset-응답을 �
 				<li><a href="${pageContext.request.contextPath}/ch13/loginForm">로그인</a></li>
 				<li><a href="${pageContext.request.contextPath}/ch13/writeBoardForm">게시물 쓰기</a></li>
 				<li><a href="${pageContext.request.contextPath}/ch13/boardList">게시물 목록</a></li>
+	         </ul>
+	      </div>
+	   </div>
+	</div>
+	
+	<div class="accordion-item">
+	   <h2 class="accordion-header">
+	      <button class="accordion-button ${chNum=='ch14'?'':'collapsed'}" type="button"
+	         data-bs-toggle="collapse" data-bs-target="#ch14"
+	         aria-expanded="${chNum=='ch14'}" aria-controls="ch14">
+	         Ch14. AOP
+        	</button>
+	   </h2>
+	   <div id="ch14" class="accordion-collapse collapse ${chNum=='ch14'?'show':''}"
+	      data-bs-parent="#accordionMenu">
+	      <div class="accordion-body">
+	         <ul>
+				<li><a href="${pageContext.request.contextPath}/ch14/before">메소드 호출 전에 공통 코드 실행</a></li>
+				<li><a href="${pageContext.request.contextPath}/ch14/after">메소드 호출 후에 공통 코드 실행</a></li>
+				<li><a href="${pageContext.request.contextPath}/ch14/afterReturning">메소드 정상적으로 리턴값을 제공할 경우 공유 코드 실행</a></li>
+				<li><a href="${pageContext.request.contextPath}/ch14/afterThrowing">메소드에서 예외가 발생할 경우 공통 코드 실행</a></li>
+				<li><a href="${pageContext.request.contextPath}/ch14/around">메소드 호출 전후에 공통 코드 실행</a></li>
+				<li><a href="${pageContext.request.contextPath}/ch14/boardList">사례: 실행 시간 측정</a></li>
+				<li><a href="${pageContext.request.contextPath}/ch14/writeBoardForm">사례: 로그인 체크</a></li>
+	         </ul>
+	      </div>
+	   </div>
+	</div>
+	
+	<div class="accordion-item">
+	   <h2 class="accordion-header">
+	      <button class="accordion-button ${chNum=='ch15'?'':'collapsed'}" type="button"
+	         data-bs-toggle="collapse" data-bs-target="#ch15"
+	         aria-expanded="${chNum=='ch15'}" aria-controls="ch15">
+	         Ch15. Transaction 처리
+        	</button>
+	   </h2>
+	   <div id="ch15" class="accordion-collapse collapse ${chNum=='ch15'?'show':''}"
+	      data-bs-parent="#accordionMenu">
+	      <div class="accordion-body">
+	         <ul>
+				<li><a href="${pageContext.request.contextPath}/ch15/accountList">계좌 이체하기</a></li>
+	         </ul>
+	      </div>
+	   </div>
+	</div>
+	
+	<div class="accordion-item">
+	   <h2 class="accordion-header">
+	      <button class="accordion-button ${chNum=='ch17'?'':'collapsed'}" type="button"
+	         data-bs-toggle="collapse" data-bs-target="#ch17"
+	         aria-expanded="${chNum=='ch17'}" aria-controls="ch17">
+	         Ch17. 스프링 시큐리티
+        	</button>
+	   </h2>
+	   <div id="ch17" class="accordion-collapse collapse ${chNum=='ch17'?'show':''}"
+	      data-bs-parent="#accordionMenu">
+	      <div class="accordion-body">
+	         <ul>
+				<li>
+		         	<sec:authorize access="isAnonymous()">
+        		 		<a href="${pageContext.request.contextPath}/ch17/loginForm">로그인</a>
+         			</sec:authorize>
+         	
+		         	<sec:authorize access="isAuthenticated()">
+		         		<a href="${pageContext.request.contextPath}/logout">로그아웃</a> 
+		         	</sec:authorize>
+		        </li>
+		        <li>
+		        	<a href="${pageContext.request.contextPath}/ch17/authorityCheck">권한별 내용보기</a>
+		        </li>
+		        <li>
+		        	<a href="${pageContext.request.contextPath}/ch17/userInfo">사용자 정보 보기</a>
+		        </li>
 	         </ul>
 	      </div>
 	   </div>
